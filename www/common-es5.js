@@ -1,3 +1,9 @@
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -639,6 +645,173 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }();
     /***/
 
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/components/toolbar/toolbar.component.html":
+  /*!*************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/toolbar/toolbar.component.html ***!
+    \*************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppComponentsToolbarToolbarComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons *ngIf=\"back\" slot=\"start\">\n      <ion-back-button defaultHref=\"home\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>{{ name }}</ion-title>\n  </ion-toolbar>\n</ion-header>";
+    /***/
+  },
+
+  /***/
+  "./src/app/components/toolbar/toolbar.component.module.ts":
+  /*!****************************************************************!*\
+    !*** ./src/app/components/toolbar/toolbar.component.module.ts ***!
+    \****************************************************************/
+
+  /*! exports provided: ToolbarComponentModule */
+
+  /***/
+  function srcAppComponentsToolbarToolbarComponentModuleTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ToolbarComponentModule", function () {
+      return ToolbarComponentModule;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @ionic/angular */
+    "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _toolbar_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./toolbar.component */
+    "./src/app/components/toolbar/toolbar.component.ts");
+
+    var ToolbarComponentModule = function ToolbarComponentModule() {
+      _classCallCheck(this, ToolbarComponentModule);
+    };
+
+    ToolbarComponentModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"]],
+      declarations: [_toolbar_component__WEBPACK_IMPORTED_MODULE_5__["ToolbarComponent"]],
+      exports: [_toolbar_component__WEBPACK_IMPORTED_MODULE_5__["ToolbarComponent"]]
+    })], ToolbarComponentModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/components/toolbar/toolbar.component.scss":
+  /*!***********************************************************!*\
+    !*** ./src/app/components/toolbar/toolbar.component.scss ***!
+    \***********************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppComponentsToolbarToolbarComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdG9vbGJhci90b29sYmFyLmNvbXBvbmVudC5zY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/components/toolbar/toolbar.component.ts":
+  /*!*********************************************************!*\
+    !*** ./src/app/components/toolbar/toolbar.component.ts ***!
+    \*********************************************************/
+
+  /*! exports provided: ToolbarComponent */
+
+  /***/
+  function srcAppComponentsToolbarToolbarComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ToolbarComponent", function () {
+      return ToolbarComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+    var ToolbarComponent = /*#__PURE__*/function () {
+      function ToolbarComponent() {
+        _classCallCheck(this, ToolbarComponent);
+      }
+
+      _createClass(ToolbarComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return ToolbarComponent;
+    }();
+
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ToolbarComponent.prototype, "name", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], ToolbarComponent.prototype, "back", void 0);
+    ToolbarComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-toolbar',
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! raw-loader!./toolbar.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/components/toolbar/toolbar.component.html"))["default"],
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+      /*! ./toolbar.component.scss */
+      "./src/app/components/toolbar/toolbar.component.scss"))["default"]]
+    })], ToolbarComponent);
+    /***/
   }
 }]);
 //# sourceMappingURL=common-es5.js.map

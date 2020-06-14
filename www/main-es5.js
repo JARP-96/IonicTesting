@@ -151,6 +151,49 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/@ionic/pwa-elements/dist/esm lazy recursive ^\\.\\/.*\\.entry\\.js$ include: \\.entry\\.js$ exclude: \\.system\\.entry\\.js$":
+  /*!*************************************************************************************************************************************************!*\
+    !*** ./node_modules/@ionic/pwa-elements/dist/esm lazy ^\.\/.*\.entry\.js$ include: \.entry\.js$ exclude: \.system\.entry\.js$ namespace object ***!
+    \*************************************************************************************************************************************************/
+
+  /*! no static exports found */
+
+  /***/
+  function node_modulesIonicPwaElementsDistEsmLazyRecursiveEntryJs$IncludeEntryJs$ExcludeSystemEntryJs$(module, exports, __webpack_require__) {
+    var map = {
+      "./pwa-action-sheet.entry.js": ["./node_modules/@ionic/pwa-elements/dist/esm/pwa-action-sheet.entry.js", 77],
+      "./pwa-camera-modal-instance.entry.js": ["./node_modules/@ionic/pwa-elements/dist/esm/pwa-camera-modal-instance.entry.js", 78],
+      "./pwa-camera-modal.entry.js": ["./node_modules/@ionic/pwa-elements/dist/esm/pwa-camera-modal.entry.js", 79],
+      "./pwa-camera.entry.js": ["./node_modules/@ionic/pwa-elements/dist/esm/pwa-camera.entry.js", 80],
+      "./pwa-toast.entry.js": ["./node_modules/@ionic/pwa-elements/dist/esm/pwa-toast.entry.js", 81]
+    };
+
+    function webpackAsyncContext(req) {
+      if (!__webpack_require__.o(map, req)) {
+        return Promise.resolve().then(function () {
+          var e = new Error("Cannot find module '" + req + "'");
+          e.code = 'MODULE_NOT_FOUND';
+          throw e;
+        });
+      }
+
+      var ids = map[req],
+          id = ids[0];
+      return __webpack_require__.e(ids[1]).then(function () {
+        return __webpack_require__(id);
+      });
+    }
+
+    webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+      return Object.keys(map);
+    };
+
+    webpackAsyncContext.id = "./node_modules/@ionic/pwa-elements/dist/esm lazy recursive ^\\.\\/.*\\.entry\\.js$ include: \\.entry\\.js$ exclude: \\.system\\.entry\\.js$";
+    module.exports = webpackAsyncContext;
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html":
   /*!**************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html ***!
@@ -211,11 +254,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var routes = [{
       path: 'home',
       loadChildren: function loadChildren() {
-        return __webpack_require__.e(
-        /*! import() | home-home-module */
-        "home-home-module").then(__webpack_require__.bind(null,
-        /*! ./home/home.module */
-        "./src/app/home/home.module.ts")).then(function (m) {
+        return Promise.all(
+        /*! import() | pages-home-home-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-home-home-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/home/home.module */
+        "./src/app/pages/home/home.module.ts")).then(function (m) {
           return m.HomePageModule;
         });
       }
@@ -223,6 +266,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       path: '',
       redirectTo: 'home',
       pathMatch: 'full'
+    }, {
+      path: 'camera',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-camera-camera-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-camera-camera-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/camera/camera.module */
+        "./src/app/pages/camera/camera.module.ts")).then(function (m) {
+          return m.CameraPageModule;
+        });
+      }
+    }, {
+      path: 'gps',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-gps-gps-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-gps-gps-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/gps/gps.module */
+        "./src/app/pages/gps/gps.module.ts")).then(function (m) {
+          return m.GpsPageModule;
+        });
+      }
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
@@ -429,6 +494,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ./app-routing.module */
     "./src/app/app-routing.module.ts");
+    /* harmony import */
+
+
+    var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! @ionic-native/geolocation/ngx */
+    "./node_modules/@ionic-native/geolocation/__ivy_ngcc__/ngx/index.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -441,7 +512,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], {
         provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
         useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
-      }],
+      }, _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })], AppModule);
     /***/
@@ -522,6 +593,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./environments/environment */
     "./src/environments/environment.ts");
+    /* harmony import */
+
+
+    var _ionic_pwa_elements_loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @ionic/pwa-elements/loader */
+    "./node_modules/@ionic/pwa-elements/loader/index.es2017.mjs");
+
+    Object(_ionic_pwa_elements_loader__WEBPACK_IMPORTED_MODULE_4__["defineCustomElements"])(window);
 
     if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production) {
       Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
