@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'device-info',
     loadChildren: () => import('./pages/device-info/device-info.module').then( m => m.DeviceInfoPageModule)
   },
+  {
+    path: 'phone-call',
+    loadChildren: () => import('./pages/phone-call/phone-call.module').then( m => m.PhoneCallPageModule)
+  },
 ];
 
 @NgModule({

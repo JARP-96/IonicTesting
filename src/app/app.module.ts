@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Device } from '@ionic-native/device/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { Device } from '@ionic-native/device/ngx';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Geolocation,
-    Device
+    Device,
+    CallNumber
   ],
   bootstrap: [AppComponent]
 })
