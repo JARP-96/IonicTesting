@@ -1,0 +1,22 @@
+<app-toolbar name="Home"></app-toolbar>
+
+<ion-content [fullscreen]="true">
+  <ion-grid id="container">
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="goToPage('/camera')">CAMERA</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="goToPage('/gps')">GPS</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="goToPage('/qr-code')">QR CODE</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="goToPage('/phone-call')">PHONE CALL</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
