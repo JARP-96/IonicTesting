@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'gps',
     loadChildren: () => import('./pages/gps/gps.module').then( m => m.GpsPageModule)
   },
+  {
+    path: 'device-info',
+    loadChildren: () => import('./pages/device-info/device-info.module').then( m => m.DeviceInfoPageModule)
+  },
 ];
 
 @NgModule({
