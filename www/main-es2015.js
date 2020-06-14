@@ -525,6 +525,10 @@ const routes = [
         path: 'gps',
         loadChildren: () => Promise.all(/*! import() | pages-gps-gps-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-gps-gps-module")]).then(__webpack_require__.bind(null, /*! ./pages/gps/gps.module */ "./src/app/pages/gps/gps.module.ts")).then(m => m.GpsPageModule)
     },
+    {
+        path: 'device-info',
+        loadChildren: () => Promise.all(/*! import() | pages-device-info-device-info-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-device-info-device-info-module")]).then(__webpack_require__.bind(null, /*! ./pages/device-info/device-info.module */ "./src/app/pages/device-info/device-info.module.ts")).then(m => m.DeviceInfoPageModule)
+    },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -625,6 +629,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/device/ngx */ "./node_modules/@ionic-native/device/__ivy_ngcc__/ngx/index.js");
+
 
 
 
@@ -646,7 +652,8 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
-            _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"]
+            _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"],
+            _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_10__["Device"]
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })

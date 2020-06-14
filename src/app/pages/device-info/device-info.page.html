@@ -1,0 +1,16 @@
+<app-toolbar [back]="true" name="Device Information"></app-toolbar>
+
+<ion-content>
+  <ion-grid id="container">
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="getDeviceID()">Get Device ID</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>ID ({{ did }}), Serial ({{ serial }})</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

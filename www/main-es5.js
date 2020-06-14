@@ -288,6 +288,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return m.GpsPageModule;
         });
       }
+    }, {
+      path: 'device-info',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-device-info-device-info-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-device-info-device-info-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/device-info/device-info.module */
+        "./src/app/pages/device-info/device-info.module.ts")).then(function (m) {
+          return m.DeviceInfoPageModule;
+        });
+      }
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
@@ -500,6 +511,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @ionic-native/geolocation/ngx */
     "./node_modules/@ionic-native/geolocation/__ivy_ngcc__/ngx/index.js");
+    /* harmony import */
+
+
+    var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @ionic-native/device/ngx */
+    "./node_modules/@ionic-native/device/__ivy_ngcc__/ngx/index.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -512,7 +529,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], {
         provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
         useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
-      }, _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"]],
+      }, _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"], _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_10__["Device"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })], AppModule);
     /***/
