@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ToolbarComponent implements OnInit {
   @Input()
   name: string;
+  @Input()
+  back: boolean;
   
   constructor() { }
 

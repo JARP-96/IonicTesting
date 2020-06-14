@@ -1,0 +1,16 @@
+<app-toolbar [back]="true" name="GPS"></app-toolbar>
+
+<ion-content>
+  <ion-grid id="container">
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="getLocation()">GET CURRENT DEVICE LOCATION</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>Latitude: ({{ latitude }}) , Longitude: ({{ longitude }})</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
