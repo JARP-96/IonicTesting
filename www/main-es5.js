@@ -299,6 +299,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return m.DeviceInfoPageModule;
         });
       }
+    }, {
+      path: 'phone-call',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-phone-call-phone-call-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-phone-call-phone-call-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/phone-call/phone-call.module */
+        "./src/app/pages/phone-call/phone-call.module.ts")).then(function (m) {
+          return m.PhoneCallPageModule;
+        });
+      }
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
@@ -517,6 +528,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @ionic-native/device/ngx */
     "./node_modules/@ionic-native/device/__ivy_ngcc__/ngx/index.js");
+    /* harmony import */
+
+
+    var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! @ionic-native/call-number/ngx */
+    "./node_modules/@ionic-native/call-number/__ivy_ngcc__/ngx/index.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -529,7 +546,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], {
         provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
         useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
-      }, _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"], _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_10__["Device"]],
+      }, _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"], _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_10__["Device"], _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_11__["CallNumber"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })], AppModule);
     /***/
