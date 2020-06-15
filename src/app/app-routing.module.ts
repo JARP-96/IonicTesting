@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'phone-call',
     loadChildren: () => import('./pages/phone-call/phone-call.module').then( m => m.PhoneCallPageModule)
   },
+  {
+    path: 'mysql',
+    loadChildren: () => import('./pages/mysql/mysql.module').then( m => m.MysqlPageModule)
+  },
 ];
 
 @NgModule({
