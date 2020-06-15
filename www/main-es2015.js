@@ -533,6 +533,10 @@ const routes = [
         path: 'phone-call',
         loadChildren: () => Promise.all(/*! import() | pages-phone-call-phone-call-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-phone-call-phone-call-module")]).then(__webpack_require__.bind(null, /*! ./pages/phone-call/phone-call.module */ "./src/app/pages/phone-call/phone-call.module.ts")).then(m => m.PhoneCallPageModule)
     },
+    {
+        path: 'qr-scanner',
+        loadChildren: () => Promise.all(/*! import() | pages-qr-scanner-qr-scanner-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-qr-scanner-qr-scanner-module")]).then(__webpack_require__.bind(null, /*! ./pages/qr-scanner/qr-scanner.module */ "./src/app/pages/qr-scanner/qr-scanner.module.ts")).then(m => m.QrScannerPageModule)
+    },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -635,6 +639,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/device/ngx */ "./node_modules/@ionic-native/device/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/call-number/ngx */ "./node_modules/@ionic-native/call-number/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/barcode-scanner/ngx */ "./node_modules/@ionic-native/barcode-scanner/__ivy_ngcc__/ngx/index.js");
+
 
 
 
@@ -660,7 +666,8 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
             _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"],
             _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_10__["Device"],
-            _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_11__["CallNumber"]
+            _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_11__["CallNumber"],
+            _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_12__["BarcodeScanner"]
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })
