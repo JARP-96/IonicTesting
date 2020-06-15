@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'phone-call',
     loadChildren: () => import('./pages/phone-call/phone-call.module').then( m => m.PhoneCallPageModule)
   },
+  {
+    path: 'qr-scanner',
+    loadChildren: () => import('./pages/qr-scanner/qr-scanner.module').then( m => m.QrScannerPageModule)
+  },
 ];
 
 @NgModule({

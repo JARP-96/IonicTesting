@@ -1,0 +1,16 @@
+<app-toolbar [back]="true" name="QR Scanner"></app-toolbar>
+
+<ion-content>
+  <ion-grid id="container">
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="scan()">Scan QR Code</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>({{ scannedCode }})</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
