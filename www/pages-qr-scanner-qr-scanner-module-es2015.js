@@ -131,10 +131,12 @@ let QrScannerPage = class QrScannerPage {
     ngOnInit() {
     }
     scan() {
-        this.barcodeScanner.scan().then(barcodeData => {
+        this.barcodeScanner.scan()
+            .then(barcodeData => {
             this.scannedCode = barcodeData;
-            console.log('Barcode data', barcodeData);
-        }).catch(err => {
+            console.log('Barcode data: ', barcodeData);
+        })
+            .catch(err => {
             console.log('Error', err);
         });
     }

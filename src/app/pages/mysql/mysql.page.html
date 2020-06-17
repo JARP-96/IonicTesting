@@ -5,14 +5,9 @@
 
     <ion-row>
       <ion-col>
-        <ion-button expand="full" size="large" (click)="getData()">GET NOMBRE DE empresas</ion-button>
+        <ion-button expand="full" size="large" (click)="getData()">GET CALLES</ion-button>
       </ion-col>
     </ion-row>
-    <ion-row *ngFor="let post of posts | async">
-      <ion-col>
-        <p>( {{ post | json }} )</p>
-      </ion-col>
-    </ion-row>
-    
+    <p>{{ posts }}</p>
   </ion-grid>
 </ion-content>
