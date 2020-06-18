@@ -11,7 +11,7 @@ export class MysqlPage implements OnInit {
 
   posts: any;
 
-  readonly ROOT_URL = "https://192.168.0.32/codeigniter/public/calle"
+  readonly ROOT_URL = "http://192.168.0.32/codeigniter/public/calles"
   constructor(
     public navCtrl: NavController,
     public http: HttpClient) { }
@@ -22,7 +22,7 @@ export class MysqlPage implements OnInit {
   getData() {
     console.log("I'm in!")
     this.http.get(this.ROOT_URL)
-    .subscribe(calles => console.log("*** ", calles));
+    .subscribe(calles => this.posts = calles);
     console.log("I'm out!")
   }
 

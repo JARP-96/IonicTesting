@@ -8,6 +8,6 @@
         <ion-button expand="full" size="large" (click)="getData()">GET CALLES</ion-button>
       </ion-col>
     </ion-row>
-    <p>{{ posts }}</p>
+    <p *ngFor="let post of posts ">{{ post.titular}}</p>
   </ion-grid>
 </ion-content>
