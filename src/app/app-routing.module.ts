@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,24 +13,28 @@ const routes: Routes = [
   },
   {
     path: 'camera',
-    loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule)
+    loadChildren: () => import('./pages/camera/camera.module').then(m => m.CameraPageModule)
   },
   {
     path: 'gps',
-    loadChildren: () => import('./pages/gps/gps.module').then( m => m.GpsPageModule)
+    loadChildren: () => import('./pages/gps/gps.module').then(m => m.GpsPageModule)
   },
   {
     path: 'device-info',
-    loadChildren: () => import('./pages/device-info/device-info.module').then( m => m.DeviceInfoPageModule)
+    loadChildren: () => import('./pages/device-info/device-info.module').then(m => m.DeviceInfoPageModule)
   },
   {
     path: 'phone-call',
-    loadChildren: () => import('./pages/phone-call/phone-call.module').then( m => m.PhoneCallPageModule)
+    loadChildren: () => import('./pages/phone-call/phone-call.module').then(m => m.PhoneCallPageModule)
   },
   {
     path: 'qr-scanner',
-    loadChildren: () => import('./pages/qr-scanner/qr-scanner.module').then( m => m.QrScannerPageModule)
+    loadChildren: () => import('./pages/qr-scanner/qr-scanner.module').then(m => m.QrScannerPageModule)
   },
+  {
+    path: 'mysql',
+    loadChildren: () => import('./pages/mysql/mysql.module').then(m => m.MysqlPageModule)
+  }
 ];
 
 @NgModule({

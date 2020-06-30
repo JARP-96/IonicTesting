@@ -1,0 +1,16 @@
+<app-toolbar [back]="true" name="MYSQL TEST"></app-toolbar>
+
+<ion-content padding>
+  <ion-grid id="container">
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="getData()">GET CALLES</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="setData()">SET MARCA</ion-button>
+      </ion-col>
+    </ion-row>
+    <p *ngFor="let post of posts ">{{ post.titular }}</p>
+  </ion-grid>
+</ion-content>

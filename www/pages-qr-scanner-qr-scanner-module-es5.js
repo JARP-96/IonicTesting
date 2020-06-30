@@ -239,7 +239,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.barcodeScanner.scan().then(function (barcodeData) {
             _this.scannedCode = barcodeData;
-            console.log('Barcode data', barcodeData);
+            console.log('Barcode data: ', barcodeData);
           })["catch"](function (err) {
             console.log('Error', err);
           });
