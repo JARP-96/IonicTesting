@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<app-toolbar [back]=\"true\" name=\"MYSQL TEST\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getData()\">GET CALLES</ion-button>\n      </ion-col>\n    </ion-row>\n<p>{{ posts }}</p>\n  </ion-grid>\n</ion-content>";
+    __webpack_exports__["default"] = "<app-toolbar [back]=\"true\" name=\"MYSQL TEST\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getData()\">GET CALLES</ion-button>\n      </ion-col>\n    </ion-row>\n    <p *ngFor=\"let post of posts \">{{ post.titular}}</p>\n  </ion-grid>\n</ion-content>";
     /***/
   },
 
@@ -234,12 +234,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.navCtrl = navCtrl;
         this.http = http;
-        this.ROOT_URL = "http://192.168.0.32/codeigniter/public/calle";
+        this.ROOT_URL = "http://192.168.0.29/codeigniter/public/calles";
       }
 
       _createClass(MysqlPage, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.getData();
+          console.log(this.posts);
+        }
       }, {
         key: "getData",
         value: function getData() {
