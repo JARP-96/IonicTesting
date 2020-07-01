@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<app-toolbar [back]=\"true\" name=\"MYSQL TEST\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getData()\">GET CALLES</ion-button>\n      </ion-col>\n    </ion-row>\n    <p *ngFor=\"let post of posts \">{{ post.titular}}</p>\n  </ion-grid>\n</ion-content>";
+    __webpack_exports__["default"] = "<app-toolbar [back]=\"true\" name=\"MYSQL TEST\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getData()\">GET CALLES</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"setData()\">SET MARCA</ion-button>\n      </ion-col>\n    </ion-row>\n    <p *ngFor=\"let post of posts \">{{ post.titular }}</p>\n  </ion-grid>\n</ion-content>";
     /***/
   },
 
@@ -234,25 +234,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.navCtrl = navCtrl;
         this.http = http;
-        this.ROOT_URL = "http://192.168.0.29/codeigniter/public/calles";
+        this.ROOT_URL_1 = "http://192.168.0.29/codeigniter/public/calles";
+        this.ROOT_URL_2 = "http://192.168.0.29/codeigniter/public/marcas/post";
       }
 
       _createClass(MysqlPage, [{
         key: "ngOnInit",
-        value: function ngOnInit() {
-          this.getData();
-          console.log(this.posts);
-        }
+        value: function ngOnInit() {}
       }, {
         key: "getData",
         value: function getData() {
           var _this = this;
 
-          console.log("I'm in!");
-          this.http.get(this.ROOT_URL).subscribe(function (calles) {
-            return _this.posts = calles;
+          this.http.get(this.ROOT_URL_1).subscribe(function (calles) {
+            _this.posts = calles;
+            console.log(_this.posts);
           });
-          console.log("I'm out!");
+        }
+      }, {
+        key: "setData",
+        value: function setData() {
+          var marca = {
+            marca: "ZZZZ"
+          };
+          var coso = [];
+          coso.push(marca);
+          console.log("**** ", JSON.stringify(coso));
+          this.http.post(this.ROOT_URL_2, JSON.stringify(coso)).subscribe(function (res) {
+            console.log(res);
+          });
         }
       }]);
 
