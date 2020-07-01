@@ -11,8 +11,8 @@ export class MysqlPage implements OnInit {
 
   posts: any;
 
-  readonly ROOT_URL_1 = "http://192.168.0.32/codeigniter/public/calles";
-  readonly ROOT_URL_2 = "http://192.168.0.32/codeigniter/public/marcas";
+  readonly ROOT_URL_1 = "http://192.168.0.29/codeigniter/public/calles";
+  readonly ROOT_URL_2 = "http://192.168.0.29/codeigniter/public/marcas/post";
   constructor(
     public navCtrl: NavController,
     public http: HttpClient) { }
@@ -30,9 +30,14 @@ export class MysqlPage implements OnInit {
 
   setData() {
     let marca = {
-      marca: "FIAT"
+      marca: "ZZZZ"
     }
-    this.http.post(this.ROOT_URL_2, marca);
+    let coso = [];
+    coso.push(marca);
+    console.log("**** ", JSON.stringify(coso));
+    this.http.post(this.ROOT_URL_2, JSON.stringify(coso)).subscribe(res => {
+      console.log(res);
+    });
   }
 
 

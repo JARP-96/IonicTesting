@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-toolbar [back]=\"true\" name=\"MYSQL TEST\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getData()\">GET CALLES</ion-button>\n      </ion-col>\n    </ion-row>\n    <p *ngFor=\"let post of posts \">{{ post.titular}}</p>\n  </ion-grid>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-toolbar [back]=\"true\" name=\"MYSQL TEST\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getData()\">GET CALLES</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"setData()\">SET MARCA</ion-button>\n      </ion-col>\n    </ion-row>\n    <p *ngFor=\"let post of posts \">{{ post.titular }}</p>\n  </ion-grid>\n</ion-content>");
 
 /***/ }),
 
@@ -130,17 +130,28 @@ let MysqlPage = class MysqlPage {
     constructor(navCtrl, http) {
         this.navCtrl = navCtrl;
         this.http = http;
-        this.ROOT_URL = "http://192.168.0.29/codeigniter/public/calles";
+        this.ROOT_URL_1 = "http://192.168.0.29/codeigniter/public/calles";
+        this.ROOT_URL_2 = "http://192.168.0.29/codeigniter/public/marcas/post";
     }
     ngOnInit() {
-        this.getData();
-        console.log(this.posts);
     }
     getData() {
-        console.log("I'm in!");
-        this.http.get(this.ROOT_URL)
-            .subscribe(calles => this.posts = calles);
-        console.log("I'm out!");
+        this.http.get(this.ROOT_URL_1)
+            .subscribe(calles => {
+            this.posts = calles;
+            console.log(this.posts);
+        });
+    }
+    setData() {
+        let marca = {
+            marca: "ZZZZ"
+        };
+        let coso = [];
+        coso.push(marca);
+        console.log("**** ", JSON.stringify(coso));
+        this.http.post(this.ROOT_URL_2, JSON.stringify(coso)).subscribe(res => {
+            console.log(res);
+        });
     }
 };
 MysqlPage.ctorParameters = () => [
