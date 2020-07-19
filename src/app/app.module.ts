@@ -13,6 +13,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
     Geolocation,
     Device,
     CallNumber,
-    BarcodeScanner
+    BarcodeScanner,
+    HTTP
   ],
   bootstrap: [AppComponent]
 })

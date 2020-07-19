@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NavController } from '@ionic/angular';
+import { HTTP } from '@ionic-native/http/ngx';
+
 
 @Component({
   selector: 'app-mysql',
@@ -11,11 +13,12 @@ export class MysqlPage implements OnInit {
 
   posts: any;
 
-  readonly ROOT_URL_1 = "http://192.168.0.29/codeigniter/public/calles";
-  readonly ROOT_URL_2 = "http://192.168.0.29/codeigniter/public/marcas/post";
+  readonly ROOT_URL_1 = "http://192.168.0.32/codeigniter/public/calles";
+  readonly ROOT_URL_2 = "http://192.168.0.32/codeigniter/public/marcas/post";
   constructor(
     public navCtrl: NavController,
-    public http: HttpClient) { }
+    public http: HttpClient,
+    public httpNative: HTTP) { }
 
   ngOnInit() {
   }
@@ -27,18 +30,20 @@ export class MysqlPage implements OnInit {
         console.log(this.posts);
       });
   }
-
-  setData() {
-    let marca = {
-      marca: "ZZZZ"
-    }
-    let coso = [];
-    coso.push(marca);
-    console.log("**** ", JSON.stringify(coso));
-    this.http.post(this.ROOT_URL_2, JSON.stringify(coso)).subscribe(res => {
-      console.log(res);
-    });
+  getDataNative() {
+    this.httpNative.get(this.ROOT_URL_1, {}, {})
+      .then(res => {
+        this.posts = res.data;
+        console.log("*** ", this.posts);
+        console.log(res.status);
+        console.log(res.data); // data received by server
+        console.log(res.headers);
+      })
+      .catch(error => {
+        console.log(error.status);
+        console.log(error.error); // error message as string
+        console.log(error.headers);
+    
+      });
   }
-
-
 }

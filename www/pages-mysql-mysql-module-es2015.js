@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-toolbar [back]=\"true\" name=\"MYSQL TEST\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getData()\">GET CALLES</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"setData()\">SET MARCA</ion-button>\n      </ion-col>\n    </ion-row>\n    <p *ngFor=\"let post of posts \">{{ post.titular }}</p>\n  </ion-grid>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-toolbar [back]=\"true\" name=\"MYSQL TEST\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getData()\">GET CALLES</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getDataNative()\">get calles native</ion-button>\n      </ion-col>\n    </ion-row>\n    <p *ngFor=\"let post of posts \">{{ post.titular }}</p>\n  </ion-grid>\n</ion-content>");
 
 /***/ }),
 
@@ -122,16 +122,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js");
+
 
 
 
 
 let MysqlPage = class MysqlPage {
-    constructor(navCtrl, http) {
+    constructor(navCtrl, http, httpNative) {
         this.navCtrl = navCtrl;
         this.http = http;
-        this.ROOT_URL_1 = "http://192.168.0.29/codeigniter/public/calles";
-        this.ROOT_URL_2 = "http://192.168.0.29/codeigniter/public/marcas/post";
+        this.httpNative = httpNative;
+        this.ROOT_URL_1 = "http://192.168.0.32/codeigniter/public/calles";
+        this.ROOT_URL_2 = "http://192.168.0.32/codeigniter/public/marcas/post";
     }
     ngOnInit() {
     }
@@ -142,21 +145,26 @@ let MysqlPage = class MysqlPage {
             console.log(this.posts);
         });
     }
-    setData() {
-        let marca = {
-            marca: "ZZZZ"
-        };
-        let coso = [];
-        coso.push(marca);
-        console.log("**** ", JSON.stringify(coso));
-        this.http.post(this.ROOT_URL_2, JSON.stringify(coso)).subscribe(res => {
-            console.log(res);
+    getDataNative() {
+        this.httpNative.get(this.ROOT_URL_1, {}, {})
+            .then(res => {
+            this.posts = res.data;
+            console.log("*** ", this.posts);
+            console.log(res.status);
+            console.log(res.data); // data received by server
+            console.log(res.headers);
+        })
+            .catch(error => {
+            console.log(error.status);
+            console.log(error.error); // error message as string
+            console.log(error.headers);
         });
     }
 };
 MysqlPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_4__["HTTP"] }
 ];
 MysqlPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

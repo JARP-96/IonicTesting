@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<app-toolbar [back]=\"true\" name=\"MYSQL TEST\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getData()\">GET CALLES</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"setData()\">SET MARCA</ion-button>\n      </ion-col>\n    </ion-row>\n    <p *ngFor=\"let post of posts \">{{ post.titular }}</p>\n  </ion-grid>\n</ion-content>";
+    __webpack_exports__["default"] = "<app-toolbar [back]=\"true\" name=\"MYSQL TEST\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getData()\">GET CALLES</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"getDataNative()\">get calles native</ion-button>\n      </ion-col>\n    </ion-row>\n    <p *ngFor=\"let post of posts \">{{ post.titular }}</p>\n  </ion-grid>\n</ion-content>";
     /***/
   },
 
@@ -227,15 +227,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @ionic/angular */
     "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+    /* harmony import */
+
+
+    var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @ionic-native/http/ngx */
+    "./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js");
 
     var MysqlPage = /*#__PURE__*/function () {
-      function MysqlPage(navCtrl, http) {
+      function MysqlPage(navCtrl, http, httpNative) {
         _classCallCheck(this, MysqlPage);
 
         this.navCtrl = navCtrl;
         this.http = http;
-        this.ROOT_URL_1 = "http://192.168.0.29/codeigniter/public/calles";
-        this.ROOT_URL_2 = "http://192.168.0.29/codeigniter/public/marcas/post";
+        this.httpNative = httpNative;
+        this.ROOT_URL_1 = "http://192.168.0.32/codeigniter/public/calles";
+        this.ROOT_URL_2 = "http://192.168.0.32/codeigniter/public/marcas/post";
       }
 
       _createClass(MysqlPage, [{
@@ -252,16 +259,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
-        key: "setData",
-        value: function setData() {
-          var marca = {
-            marca: "ZZZZ"
-          };
-          var coso = [];
-          coso.push(marca);
-          console.log("**** ", JSON.stringify(coso));
-          this.http.post(this.ROOT_URL_2, JSON.stringify(coso)).subscribe(function (res) {
-            console.log(res);
+        key: "getDataNative",
+        value: function getDataNative() {
+          var _this2 = this;
+
+          this.httpNative.get(this.ROOT_URL_1, {}, {}).then(function (res) {
+            _this2.posts = res.data;
+            console.log("*** ", _this2.posts);
+            console.log(res.status);
+            console.log(res.data); // data received by server
+
+            console.log(res.headers);
+          })["catch"](function (error) {
+            console.log(error.status);
+            console.log(error.error); // error message as string
+
+            console.log(error.headers);
           });
         }
       }]);
@@ -274,6 +287,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"]
       }, {
         type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }, {
+        type: _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_4__["HTTP"]
       }];
     };
 
