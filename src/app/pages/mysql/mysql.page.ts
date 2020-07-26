@@ -13,8 +13,8 @@ export class MysqlPage implements OnInit {
 
   posts: any;
 
-  readonly ROOT_URL_1 = "http://192.168.0.32/codeigniter/public/calles";
-  readonly ROOT_URL_2 = "http://192.168.0.32/codeigniter/public/marcas/post";
+  readonly ROOT_URL_1 = "http://192.168.0.32/sicovi_m/public/calles";
+  readonly ROOT_URL_2 = "http://192.168.0.32/sicovi_m/public/marcas/post";
   constructor(
     public navCtrl: NavController,
     public http: HttpClient,
