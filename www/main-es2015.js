@@ -540,6 +540,10 @@ const routes = [
     {
         path: 'mysql',
         loadChildren: () => Promise.all(/*! import() | pages-mysql-mysql-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-mysql-mysql-module")]).then(__webpack_require__.bind(null, /*! ./pages/mysql/mysql.module */ "./src/app/pages/mysql/mysql.module.ts")).then(m => m.MysqlPageModule)
+    },
+    {
+        path: 'social-sharing',
+        loadChildren: () => Promise.all(/*! import() | pages-social-sharing-social-sharing-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-social-sharing-social-sharing-module")]).then(__webpack_require__.bind(null, /*! ./pages/social-sharing/social-sharing.module */ "./src/app/pages/social-sharing/social-sharing.module.ts")).then(m => m.SocialSharingPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {

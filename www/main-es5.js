@@ -332,6 +332,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return m.MysqlPageModule;
         });
       }
+    }, {
+      path: 'social-sharing',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-social-sharing-social-sharing-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-social-sharing-social-sharing-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/social-sharing/social-sharing.module */
+        "./src/app/pages/social-sharing/social-sharing.module.ts")).then(function (m) {
+          return m.SocialSharingPageModule;
+        });
+      }
     }];
 
     var AppRoutingModule = function AppRoutingModule() {

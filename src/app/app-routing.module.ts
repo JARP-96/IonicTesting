@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'mysql',
     loadChildren: () => import('./pages/mysql/mysql.module').then(m => m.MysqlPageModule)
+  },
+  {
+    path: 'social-sharing',
+    loadChildren: () => import('./pages/social-sharing/social-sharing.module').then( m => m.SocialSharingPageModule)
   }
 ];
 
