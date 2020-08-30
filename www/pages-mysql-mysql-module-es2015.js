@@ -133,8 +133,8 @@ let MysqlPage = class MysqlPage {
         this.navCtrl = navCtrl;
         this.http = http;
         this.httpNative = httpNative;
-        this.ROOT_URL_1 = "http://192.168.0.32/codeigniter/public/calles";
-        this.ROOT_URL_2 = "http://192.168.0.32/codeigniter/public/marcas/post";
+        this.ROOT_URL_1 = "http://192.168.0.32/sicovi_m/public/calles";
+        this.ROOT_URL_2 = "http://192.168.0.32/sicovi_m/public/marcas/post";
     }
     ngOnInit() {
     }
