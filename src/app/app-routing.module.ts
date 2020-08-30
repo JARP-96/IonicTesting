@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'mysql',
     loadChildren: () => import('./pages/mysql/mysql.module').then(m => m.MysqlPageModule)
+  },
+  {
+    path: 'sms',
+    loadChildren: () => import('./pages/sms/sms.module').then( m => m.SmsPageModule)
   }
 ];
 
