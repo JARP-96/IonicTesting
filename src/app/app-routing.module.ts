@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'sms',
     loadChildren: () => import('./pages/sms/sms.module').then( m => m.SmsPageModule)
+  },
+  {
+    path: 'email',
+    loadChildren: () => import('./pages/email/email.module').then( m => m.EmailPageModule)
   }
 ];
 
