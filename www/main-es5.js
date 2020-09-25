@@ -335,12 +335,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       path: 'sms',
       loadChildren: function loadChildren() {
-        return __webpack_require__.e(
+        return Promise.all(
         /*! import() | pages-sms-sms-module */
-        "pages-sms-sms-module").then(__webpack_require__.bind(null,
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-sms-sms-module")]).then(__webpack_require__.bind(null,
         /*! ./pages/sms/sms.module */
         "./src/app/pages/sms/sms.module.ts")).then(function (m) {
           return m.SmsPageModule;
+        });
+      }
+    }, {
+      path: 'email',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() | pages-email-email-module */
+        [__webpack_require__.e("common"), __webpack_require__.e("pages-email-email-module")]).then(__webpack_require__.bind(null,
+        /*! ./pages/email/email.module */
+        "./src/app/pages/email/email.module.ts")).then(function (m) {
+          return m.EmailPageModule;
         });
       }
     }];

@@ -543,7 +543,11 @@ const routes = [
     },
     {
         path: 'sms',
-        loadChildren: () => __webpack_require__.e(/*! import() | pages-sms-sms-module */ "pages-sms-sms-module").then(__webpack_require__.bind(null, /*! ./pages/sms/sms.module */ "./src/app/pages/sms/sms.module.ts")).then(m => m.SmsPageModule)
+        loadChildren: () => Promise.all(/*! import() | pages-sms-sms-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-sms-sms-module")]).then(__webpack_require__.bind(null, /*! ./pages/sms/sms.module */ "./src/app/pages/sms/sms.module.ts")).then(m => m.SmsPageModule)
+    },
+    {
+        path: 'email',
+        loadChildren: () => Promise.all(/*! import() | pages-email-email-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-email-email-module")]).then(__webpack_require__.bind(null, /*! ./pages/email/email.module */ "./src/app/pages/email/email.module.ts")).then(m => m.EmailPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {

@@ -19,7 +19,6 @@ export class DeviceInfoPage implements OnInit {
 
   async getDeviceID() {
     this.did = this.device.uuid;
-    this.serial = this.device.serial;
   }
 
 }
