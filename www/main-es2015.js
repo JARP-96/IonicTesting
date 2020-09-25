@@ -543,7 +543,11 @@ const routes = [
     },
     {
         path: 'sms',
-        loadChildren: () => __webpack_require__.e(/*! import() | pages-sms-sms-module */ "pages-sms-sms-module").then(__webpack_require__.bind(null, /*! ./pages/sms/sms.module */ "./src/app/pages/sms/sms.module.ts")).then(m => m.SmsPageModule)
+        loadChildren: () => Promise.all(/*! import() | pages-sms-sms-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-sms-sms-module")]).then(__webpack_require__.bind(null, /*! ./pages/sms/sms.module */ "./src/app/pages/sms/sms.module.ts")).then(m => m.SmsPageModule)
+    },
+    {
+        path: 'contacts',
+        loadChildren: () => Promise.all(/*! import() | pages-contacts-contacts-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-contacts-contacts-module")]).then(__webpack_require__.bind(null, /*! ./pages/contacts/contacts.module */ "./src/app/pages/contacts/contacts.module.ts")).then(m => m.ContactsPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -651,6 +655,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/barcode-scanner/ngx */ "./node_modules/@ionic-native/barcode-scanner/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ionic-native/http/ngx */ "./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _ionic_native_sms_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/sms/ngx */ "./node_modules/@ionic-native/sms/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _ionic_native_contacts_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/contacts/ngx */ "./node_modules/@ionic-native/contacts/__ivy_ngcc__/ngx/index.js");
+
 
 
 
@@ -683,7 +689,8 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _ionic_native_call_number_ngx__WEBPACK_IMPORTED_MODULE_12__["CallNumber"],
             _ionic_native_barcode_scanner_ngx__WEBPACK_IMPORTED_MODULE_13__["BarcodeScanner"],
             _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_14__["HTTP"],
-            _ionic_native_sms_ngx__WEBPACK_IMPORTED_MODULE_15__["SMS"]
+            _ionic_native_sms_ngx__WEBPACK_IMPORTED_MODULE_15__["SMS"],
+            _ionic_native_contacts_ngx__WEBPACK_IMPORTED_MODULE_16__["Contact"]
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })

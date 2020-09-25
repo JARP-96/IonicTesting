@@ -15,6 +15,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { HTTP } from '@ionic-native/http/ngx';
 import { SMS } from '@ionic-native/sms/ngx';
+import { Contact } from '@ionic-native/contacts/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,8 @@ import { SMS } from '@ionic-native/sms/ngx';
     CallNumber,
     BarcodeScanner,
     HTTP,
-    SMS
+    SMS,
+    Contact
   ],
   bootstrap: [AppComponent]
 })
