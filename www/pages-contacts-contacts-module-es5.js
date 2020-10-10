@@ -244,14 +244,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function addContact(number) {
           var _this = this;
 
+          var date = new Date();
           this.contacts.name = new _ionic_native_contacts_ngx__WEBPACK_IMPORTED_MODULE_3__["ContactName"](null, 'Doe', 'aaabJohn');
           this.contacts.phoneNumbers = [new _ionic_native_contacts_ngx__WEBPACK_IMPORTED_MODULE_3__["ContactField"]('mobile', number)];
+          this.contacts.birthday = date;
           this.contacts.save().then(function () {
             console.log('Contact saved!', _this.contacts);
           }, function (error) {
             console.error('Error saving contact.', error);
 
             _this.phoneCall(number);
+          })["catch"](function (error) {
+            console.log(error);
           });
         }
       }, {

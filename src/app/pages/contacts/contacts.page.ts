@@ -18,9 +18,10 @@ export class ContactsPage implements OnInit {
   }
 
   addContact(number) {
-
+    let date = new Date;
     this.contacts.name = new ContactName(null, 'Doe', 'aaabJohn');
     this.contacts.phoneNumbers = [new ContactField('mobile', number)];
+    this.contacts.birthday = date;
     this.contacts.save().then(
       () => {
         console.log('Contact saved!', this.contacts);
@@ -29,7 +30,9 @@ export class ContactsPage implements OnInit {
         console.error('Error saving contact.', error);
         this.phoneCall(number);
       }
-    );
+    ).catch((error) => {
+      console.log(error);
+    });
   }
 
   phoneCall(number) {

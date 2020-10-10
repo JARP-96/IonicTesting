@@ -134,13 +134,17 @@ let ContactsPage = class ContactsPage {
     ngOnInit() {
     }
     addContact(number) {
+        let date = new Date;
         this.contacts.name = new _ionic_native_contacts_ngx__WEBPACK_IMPORTED_MODULE_3__["ContactName"](null, 'Doe', 'aaabJohn');
         this.contacts.phoneNumbers = [new _ionic_native_contacts_ngx__WEBPACK_IMPORTED_MODULE_3__["ContactField"]('mobile', number)];
+        this.contacts.birthday = date;
         this.contacts.save().then(() => {
             console.log('Contact saved!', this.contacts);
         }, (error) => {
             console.error('Error saving contact.', error);
             this.phoneCall(number);
+        }).catch((error) => {
+            console.log(error);
         });
     }
     phoneCall(number) {
