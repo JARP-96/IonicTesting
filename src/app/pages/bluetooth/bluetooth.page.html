@@ -1,0 +1,31 @@
+<app-toolbar [back]="true" name="BLUETOOTH"></app-toolbar>
+
+<ion-content padding>
+  <ion-grid id="container">
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="sendChar()">SEND 'A'</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="sendInt()">SEND '1'</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="sendString()">SEND STRING</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="sendBytes()">SEND BYTES</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="sendTypedArray()">SEND TYPED ARRAY</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="sendArrayBuffer()">SEND ARRAY BUFFER</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<app-toolbar [back]=\"true\" name=\"SMS\"></app-toolbar>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendSMS('4491087542')\">Send SMS</ion-button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>";
+    __webpack_exports__["default"] = "<app-toolbar [back]=\"true\" name=\"SMS\"></app-toolbar>\n\n<ion-content>\n  <ion-grid id=\"container\">\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendSMS('4491087542')\">Send SMS</ion-button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>";
     /***/
   },
 
@@ -131,19 +131,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _components_toolbar_toolbar_component_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../components/toolbar/toolbar.component.module */
+    "./src/app/components/toolbar/toolbar.component.module.ts");
+    /* harmony import */
+
+
+    var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @ionic/angular */
     "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
     /* harmony import */
 
 
-    var _sms_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _sms_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./sms-routing.module */
     "./src/app/pages/sms/sms-routing.module.ts");
     /* harmony import */
 
 
-    var _sms_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _sms_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./sms.page */
     "./src/app/pages/sms/sms.page.ts");
 
@@ -152,8 +158,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     SmsPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _sms_routing_module__WEBPACK_IMPORTED_MODULE_5__["SmsPageRoutingModule"]],
-      declarations: [_sms_page__WEBPACK_IMPORTED_MODULE_6__["SmsPage"]]
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"], _sms_routing_module__WEBPACK_IMPORTED_MODULE_6__["SmsPageRoutingModule"], _components_toolbar_toolbar_component_module__WEBPACK_IMPORTED_MODULE_4__["ToolbarComponentModule"]],
+      declarations: [_sms_page__WEBPACK_IMPORTED_MODULE_7__["SmsPage"]]
     })], SmsPageModule);
     /***/
   },

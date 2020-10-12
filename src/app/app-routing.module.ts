@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'sms',
     loadChildren: () => import('./pages/sms/sms.module').then( m => m.SmsPageModule)
+  },
+  {
+    path: 'bluetooth',
+    loadChildren: () => import('./pages/bluetooth/bluetooth.module').then( m => m.BluetoothPageModule)
   }
 ];
 
