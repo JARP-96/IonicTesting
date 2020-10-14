@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'bluetooth',
     loadChildren: () => import('./pages/bluetooth/bluetooth.module').then( m => m.BluetoothPageModule)
+  },
+  {
+    path: 'ble',
+    loadChildren: () => import('./pages/ble/ble.module').then( m => m.BlePageModule)
   }
 ];
 

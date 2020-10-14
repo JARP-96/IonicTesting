@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<app-toolbar [back]=\"true\" name=\"BLUETOOTH\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendChar()\">SEND 'A'</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendInt()\">SEND '1'</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendString()\">SEND STRING</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendBytes()\">SEND BYTES</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendTypedArray()\">SEND TYPED ARRAY</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendArrayBuffer()\">SEND ARRAY BUFFER</ion-button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>";
+    __webpack_exports__["default"] = "<app-toolbar [back]=\"true\" name=\"BLUETOOTH\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-col>\n          <ion-button expand=\"full\" size=\"large\" (click)=\"connectBluetooth()\">CONNECT</ion-button>\n        </ion-col>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendChar()\">SEND 'A'</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendInt()\">SEND '1'</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendString()\">SEND STRING</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendBytes()\">SEND BYTES</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendTypedArray()\">SEND TYPED ARRAY</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendArrayBuffer()\">SEND ARRAY BUFFER</ion-button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>";
     /***/
   },
 
@@ -238,10 +238,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(BluetoothPage, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.checkBluetoothEnable();
+        }
       }, {
         key: "presentAlert",
-        value: function presentAlert(message) {
+        value: function presentAlert(sub, message) {
           return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
             var alert;
             return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -251,7 +253,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     _context.next = 2;
                     return this.alertController.create({
                       header: 'Alert',
-                      subHeader: 'Subtitle',
+                      subHeader: sub,
                       message: message,
                       buttons: ['OK']
                     });
@@ -268,63 +270,90 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             }, _callee, this);
           }));
+        } // UE MEGABOOM, 88:C6:26:F1:A7:54
+
+      }, {
+        key: "checkBluetoothEnable",
+        value: function checkBluetoothEnable() {
+          var _this = this;
+
+          this.bluetoothSerial.isEnabled().then(function (success) {
+            _this.presentAlert("Enable Success", success);
+
+            _this.bluetoothSerial.list().then(function (res) {
+              _this.presentAlert("List", JSON.stringify(res));
+            });
+          }, function (error) {
+            _this.presentAlert("Enable Error", error);
+          });
+        }
+      }, {
+        key: "connectBluetooth",
+        value: function connectBluetooth() {
+          var _this2 = this;
+
+          this.bluetoothSerial.connectInsecure("88:C6:26:F1:A7:54").subscribe(function (res) {
+            _this2.presentAlert("Connect Success", res);
+          }, function (error) {
+            _this2.presentAlert("Connect Error", error);
+          });
         }
       }, {
         key: "sendChar",
         value: function sendChar() {
-          var _this = this;
+          var _this3 = this;
 
           this.bluetoothSerial.write('A').then(function (success) {
-            _this.presentAlert(success);
+            _this3.presentAlert("Char", success);
           }, function (failure) {
-            _this.presentAlert(failure);
+            _this3.presentAlert("Char", failure);
           })["catch"](function (error) {
-            _this.presentAlert(error);
+            _this3.presentAlert("Char", error);
           });
         }
       }, {
         key: "sendInt",
         value: function sendInt() {
-          var _this2 = this;
+          var _this4 = this;
 
           this.bluetoothSerial.write(1).then(function (success) {
-            _this2.presentAlert(success);
+            _this4.presentAlert("Int", success);
           }, function (failure) {
-            _this2.presentAlert(failure);
+            _this4.presentAlert("Int", failure);
           })["catch"](function (error) {
-            _this2.presentAlert(error);
+            _this4.presentAlert("Int", error);
           });
         }
       }, {
         key: "sendString",
         value: function sendString() {
-          var _this3 = this;
+          var _this5 = this;
 
           this.bluetoothSerial.write('hello world').then(function (success) {
-            _this3.presentAlert(success);
+            _this5.presentAlert("String", success);
           }, function (failure) {
-            _this3.presentAlert(failure);
+            _this5.presentAlert("String", failure);
           })["catch"](function (error) {
-            _this3.presentAlert(error);
+            _this5.presentAlert("String", error);
           });
         }
       }, {
         key: "sendBytes",
         value: function sendBytes() {
-          var _this4 = this;
+          var _this6 = this;
 
           this.bluetoothSerial.write([186, 220, 222]).then(function (success) {
-            _this4.presentAlert(success);
+            _this6.presentAlert("Bytes", success);
           }, function (failure) {
-            _this4.presentAlert(failure);
+            _this6.presentAlert("Bytes", failure);
           })["catch"](function (error) {
-            _this4.presentAlert(error);
+            _this6.presentAlert("Bytes", error);
           });
         }
       }, {
         key: "sendTypedArray",
         value: function sendTypedArray() {
-          var _this5 = this;
+          var _this7 = this;
 
           var data = new Uint8Array(4);
           data[0] = 0x41;
@@ -332,17 +361,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           data[2] = 0x43;
           data[3] = 0x44;
           this.bluetoothSerial.write(data).then(function (success) {
-            _this5.presentAlert(success);
+            _this7.presentAlert("Typed Array", success);
           }, function (failure) {
-            _this5.presentAlert(failure);
+            _this7.presentAlert("Typed Array", failure);
           })["catch"](function (error) {
-            _this5.presentAlert(error);
+            _this7.presentAlert("Typed Array", error);
           });
         }
       }, {
         key: "sendArrayBuffer",
         value: function sendArrayBuffer() {
-          var _this6 = this;
+          var _this8 = this;
 
           var data = new Uint8Array(4);
           data[0] = 0x41;
@@ -350,11 +379,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           data[2] = 0x43;
           data[3] = 0x44;
           this.bluetoothSerial.write(data.buffer).then(function (success) {
-            _this6.presentAlert(success);
+            _this8.presentAlert("Array Buffer", success);
           }, function (failure) {
-            _this6.presentAlert(failure);
+            _this8.presentAlert("Array Buffer", failure);
           })["catch"](function (error) {
-            _this6.presentAlert(error);
+            _this8.presentAlert("Array Buffer", error);
           });
         }
       }]);

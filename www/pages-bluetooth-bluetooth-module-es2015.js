@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-toolbar [back]=\"true\" name=\"BLUETOOTH\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendChar()\">SEND 'A'</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendInt()\">SEND '1'</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendString()\">SEND STRING</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendBytes()\">SEND BYTES</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendTypedArray()\">SEND TYPED ARRAY</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendArrayBuffer()\">SEND ARRAY BUFFER</ion-button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-toolbar [back]=\"true\" name=\"BLUETOOTH\"></app-toolbar>\n\n<ion-content padding>\n  <ion-grid id=\"container\">\n\n    <ion-row>\n      <ion-col>\n        <ion-col>\n          <ion-button expand=\"full\" size=\"large\" (click)=\"connectBluetooth()\">CONNECT</ion-button>\n        </ion-col>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendChar()\">SEND 'A'</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendInt()\">SEND '1'</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendString()\">SEND STRING</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendBytes()\">SEND BYTES</ion-button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendTypedArray()\">SEND TYPED ARRAY</ion-button>\n      </ion-col>\n      <ion-col>\n        <ion-button expand=\"full\" size=\"large\" (click)=\"sendArrayBuffer()\">SEND ARRAY BUFFER</ion-button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>");
 
 /***/ }),
 
@@ -132,56 +132,76 @@ let BluetoothPage = class BluetoothPage {
         this.alertController = alertController;
     }
     ngOnInit() {
+        this.checkBluetoothEnable();
     }
-    presentAlert(message) {
+    presentAlert(sub, message) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const alert = yield this.alertController.create({
                 header: 'Alert',
-                subHeader: 'Subtitle',
+                subHeader: sub,
                 message: message,
                 buttons: ['OK']
             });
             yield alert.present();
         });
     }
+    // UE MEGABOOM, 88:C6:26:F1:A7:54
+    checkBluetoothEnable() {
+        this.bluetoothSerial.isEnabled().then(success => {
+            this.presentAlert("Enable Success", success);
+            this.bluetoothSerial.list().then(res => {
+                this.presentAlert("List", JSON.stringify(res));
+            });
+        }, error => {
+            this.presentAlert("Enable Error", error);
+        });
+    }
+    connectBluetooth() {
+        this.bluetoothSerial.connectInsecure("88:C6:26:F1:A7:54")
+            .subscribe((res) => {
+            this.presentAlert("Connect Success", res);
+        }, error => {
+            this.presentAlert("Connect Error", error);
+        });
+    }
     sendChar() {
         this.bluetoothSerial.write('A').then((success) => {
-            this.presentAlert(success);
+            this.presentAlert("Char", success);
         }, (failure) => {
-            this.presentAlert(failure);
+            this.presentAlert("Char", failure);
         })
             .catch((error) => {
-            this.presentAlert(error);
+            this.presentAlert("Char", error);
         });
     }
     sendInt() {
         this.bluetoothSerial.write(1).then((success) => {
-            this.presentAlert(success);
+            this.presentAlert("Int", success);
         }, (failure) => {
-            this.presentAlert(failure);
+            this.presentAlert("Int", failure);
         })
             .catch((error) => {
-            this.presentAlert(error);
+            this.presentAlert("Int", error);
         });
     }
     sendString() {
         this.bluetoothSerial.write('hello world').then((success) => {
-            this.presentAlert(success);
+            this.presentAlert("String", success);
         }, (failure) => {
-            this.presentAlert(failure);
+            this.presentAlert("String", failure);
         })
             .catch((error) => {
-            this.presentAlert(error);
+            this.presentAlert("String", error);
         });
     }
     sendBytes() {
         this.bluetoothSerial.write([186, 220, 222]).then((success) => {
-            this.presentAlert(success);
+            this.presentAlert("Bytes", success);
         }, (failure) => {
-            this.presentAlert(failure);
+            this.presentAlert("Bytes", failure);
         })
             .catch((error) => {
-            this.presentAlert(error);
+            this.presentAlert("Bytes", error);
         });
     }
     sendTypedArray() {
@@ -191,12 +211,12 @@ let BluetoothPage = class BluetoothPage {
         data[2] = 0x43;
         data[3] = 0x44;
         this.bluetoothSerial.write(data).then((success) => {
-            this.presentAlert(success);
+            this.presentAlert("Typed Array", success);
         }, (failure) => {
-            this.presentAlert(failure);
+            this.presentAlert("Typed Array", failure);
         })
             .catch((error) => {
-            this.presentAlert(error);
+            this.presentAlert("Typed Array", error);
         });
     }
     sendArrayBuffer() {
@@ -206,12 +226,12 @@ let BluetoothPage = class BluetoothPage {
         data[2] = 0x43;
         data[3] = 0x44;
         this.bluetoothSerial.write(data.buffer).then((success) => {
-            this.presentAlert(success);
+            this.presentAlert("Array Buffer", success);
         }, (failure) => {
-            this.presentAlert(failure);
+            this.presentAlert("Array Buffer", failure);
         })
             .catch((error) => {
-            this.presentAlert(error);
+            this.presentAlert("Array Buffer", error);
         });
     }
 };

@@ -15,57 +15,80 @@ export class BluetoothPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.checkBluetoothEnable();
   }
 
-  async presentAlert(message) {
+  async presentAlert(sub, message) {
     const alert = await this.alertController.create({
       header: 'Alert',
-      subHeader: 'Subtitle',
+      subHeader: sub,
       message: message,
       buttons: ['OK']
     });
 
     await alert.present();
   }
+
+  // UE MEGABOOM, 88:C6:26:F1:A7:54
+
+  checkBluetoothEnable() {
+    this.bluetoothSerial.isEnabled().then(success => {
+      this.presentAlert("Enable Success", success);
+      this.bluetoothSerial.list().then(res => {
+        this.presentAlert("List", JSON.stringify(res.name));
+      });
+    }, error => {
+      this.presentAlert("Enable Error", error);
+    })
+  }
+
+  connectBluetooth() {
+    this.bluetoothSerial.connectInsecure("88:C6:26:F1:A7:54")
+      .subscribe((res) => {
+        this.presentAlert("Connect Success", res);
+      }, error => {
+        this.presentAlert("Connect Error", error);
+      });
+  }
   sendChar() {
     this.bluetoothSerial.write('A').then((success) => {
-      this.presentAlert(success);
+      this.presentAlert("Char", success);
     }, (failure) => {
-      this.presentAlert(failure);
+      this.presentAlert("Char", failure);
     })
       .catch((error) => {
-        this.presentAlert(error);
+        this.presentAlert("Char", error);
       });
   }
   sendInt() {
     this.bluetoothSerial.write(1).then((success) => {
-      this.presentAlert(success);
+      this.presentAlert("Int", success);
     }, (failure) => {
-      this.presentAlert(failure);
+      this.presentAlert("Int", failure);
     })
       .catch((error) => {
-        this.presentAlert(error);
+        this.presentAlert("Int", error);
       });
   }
   sendString() {
     this.bluetoothSerial.write('hello world').then((success) => {
-      this.presentAlert(success);
+      this.presentAlert("String", success);
     }, (failure) => {
-      this.presentAlert(failure);
+      this.presentAlert("String", failure);
     })
       .catch((error) => {
-        this.presentAlert(error);
+        this.presentAlert("String", error);
       });
   }
 
   sendBytes() {
     this.bluetoothSerial.write([186, 220, 222]).then((success) => {
-      this.presentAlert(success);
+      this.presentAlert("Bytes", success);
     }, (failure) => {
-      this.presentAlert(failure);
+      this.presentAlert("Bytes", failure);
     })
       .catch((error) => {
-        this.presentAlert(error);
+        this.presentAlert("Bytes", error);
       });
   }
 
@@ -76,12 +99,12 @@ export class BluetoothPage implements OnInit {
     data[2] = 0x43;
     data[3] = 0x44;
     this.bluetoothSerial.write(data).then((success) => {
-      this.presentAlert(success);
+      this.presentAlert("Typed Array", success);
     }, (failure) => {
-      this.presentAlert(failure);
+      this.presentAlert("Typed Array", failure);
     })
       .catch((error) => {
-        this.presentAlert(error);
+        this.presentAlert("Typed Array", error);
       });
   }
 
@@ -92,12 +115,12 @@ export class BluetoothPage implements OnInit {
     data[2] = 0x43;
     data[3] = 0x44;
     this.bluetoothSerial.write(data.buffer).then((success) => {
-      this.presentAlert(success);
+      this.presentAlert("Array Buffer", success);
     }, (failure) => {
-      this.presentAlert(failure);
+      this.presentAlert("Array Buffer", failure);
     })
       .catch((error) => {
-        this.presentAlert(error);
+        this.presentAlert("Array Buffer", error);
       });
   }
 
