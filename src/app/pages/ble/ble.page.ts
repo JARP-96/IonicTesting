@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { BLE } from '@ionic-native/ble/ngx';
 
 @Component({
   selector: 'app-ble',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlePage implements OnInit {
 
-  constructor() { }
+  devices: any[] = [];
+  constructor(
+    private ble: BLE,
+    private ngZone: NgZone
+  ) { }
 
   ngOnInit() {
+    this.scan();
   }
 
+  scan() {
+    this.devices = [];
+    this.ble.startScan([]).subscribe(res => {
+      console.log(JSON.stringify(res));
+    })
+  }
+
+  connectBLE() {
+
+  }
 }

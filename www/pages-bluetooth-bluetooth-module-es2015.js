@@ -150,7 +150,7 @@ let BluetoothPage = class BluetoothPage {
         this.bluetoothSerial.isEnabled().then(success => {
             this.presentAlert("Enable Success", success);
             this.bluetoothSerial.list().then(res => {
-                this.presentAlert("List", JSON.stringify(res));
+                this.presentAlert("List", JSON.stringify(res.name));
             });
         }, error => {
             this.presentAlert("Enable Error", error);

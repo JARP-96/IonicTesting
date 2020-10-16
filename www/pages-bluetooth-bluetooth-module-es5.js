@@ -281,7 +281,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this.presentAlert("Enable Success", success);
 
             _this.bluetoothSerial.list().then(function (res) {
-              _this.presentAlert("List", JSON.stringify(res));
+              _this.presentAlert("List", JSON.stringify(res.name));
             });
           }, function (error) {
             _this.presentAlert("Enable Error", error);

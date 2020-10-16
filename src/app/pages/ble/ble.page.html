@@ -1,9 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ble</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-toolbar [back]="true" name="Bluetooth BLE"></app-toolbar>
 
 <ion-content>
-
+  <ion-grid id="container">
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" size="large" (click)="scan()">Scan</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-card-content *ngFor="let device of devices">
+      <p>{{ device.name || Unnamed }}</p>
+      <p>{{ device.id }}</p>
+      <p>RSSI: {{ device.rssi }}</p>
+    </ion-card-content>
+  </ion-list>
 </ion-content>

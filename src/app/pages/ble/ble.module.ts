@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { BlePageRoutingModule } from './ble-routing.module';
+import { ToolbarComponentModule } from '../../components/toolbar/toolbar.component.module';
 
 import { BlePage } from './ble.page';
 
@@ -13,7 +14,8 @@ import { BlePage } from './ble.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    BlePageRoutingModule
+    BlePageRoutingModule,
+    ToolbarComponentModule
   ],
   declarations: [BlePage]
 })
